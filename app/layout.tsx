@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import NavBar from "./_components/navbar/NavBar";
+import Sidebar from "./_components/sidebar/Sidebar";
 import StoreProvider from "./StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,7 +24,14 @@ export default function RootLayout({
         <StoreProvider>
           <div className="flex flex-col min-h-screen">
             <NavBar />
-            <main>{children}</main>
+            <div className="flex flex-grow">
+              <Sidebar />
+              <main className="flex flex-col w-full">
+                <div className="mx-5 bg-slate-200 flex-grow rounded-md">
+                  {children}
+                </div>
+              </main>
+            </div>
           </div>
         </StoreProvider>
       </body>

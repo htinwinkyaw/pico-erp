@@ -14,7 +14,7 @@ const TableHead: React.FC<TableHeadProps> = ({ columns }) => {
           return (
             <th
               key={index}
-              className={`px-3 uppercase 
+              className={`p-3 uppercase 
                 ${column.width ? `w-${column.width}` : "w-auto"}
                 ${
                   column.headerPosition === CellPosition.left

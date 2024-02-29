@@ -13,7 +13,7 @@ interface TableBodyDataProps {
 
 const TableBodyData: React.FC<TableBodyDataProps> = ({ row, column }) => {
   return (
-    <td className="p-3">
+    <td className="px-3 py-5">
       <div
         className={`flex items-center ${
           column.dataPosition === CellPosition.left && "justify-left text-left"

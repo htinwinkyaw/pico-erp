@@ -1,7 +1,8 @@
 import React from "react";
+import RoleListClient from "./RoleListClient";
 
 const RoleListPage = () => {
-  return <div>RoleListPage</div>;
+  return <RoleListClient />;
 };
 
 export default RoleListPage;

@@ -34,8 +34,9 @@ const DataTable: React.FC<DataTableProps> = ({ table, rows, columns }) => {
       )}
       <div className="p-5 bg-slate-200 rounded-lg">
         <TableControl
-          table={table}
+          columns={columns}
           rows={rows}
+          table={table}
           setSearchedRows={setFilteredRows}
           setOpenFilter={setOpenFilter}
         />

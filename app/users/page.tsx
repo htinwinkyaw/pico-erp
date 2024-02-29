@@ -1,5 +1,7 @@
+import UserListClient from "./UserListClient";
+
 const UserListPage = () => {
-  return <div>UserListpage</div>;
+  return <UserListClient />;
 };
 
 export default UserListPage;

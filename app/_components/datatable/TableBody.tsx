@@ -18,7 +18,7 @@ const TableBody: React.FC<TableBodyProps> = ({ rows, columns }) => {
         return (
           <tr
             key={rowIndex}
-            className="border-b border-slate-200 hover:bg-slate-100"
+            className="border-b border-slate-300 hover:bg-slate-300"
           >
             {columns.map((column, columnIndex) => {
               return (

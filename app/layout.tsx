@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import Footer from "./_components/footer/Footer";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import NavBar from "./_components/navbar/NavBar";
@@ -27,9 +28,8 @@ export default function RootLayout({
             <div className="flex flex-grow">
               <Sidebar />
               <main className="flex flex-col w-full">
-                <div className="mx-5 bg-slate-200 flex-grow rounded-md">
-                  {children}
-                </div>
+                <div className="mx-5 flex-grow rounded-md">{children}</div>
+                <Footer />
               </main>
             </div>
           </div>

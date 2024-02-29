@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/app/_store/hook";
 
 import { HiChevronUp } from "react-icons/hi";
 import React from "react";
-import { SidebarItemType } from "@/app/_types/sidebar";
+import { SidebarItemType } from "@/app/_types/sidebar.type";
 import { sidebarActions } from "@/app/_store/slices/sidebarSlice";
 import { useRouter } from "next/navigation";
 

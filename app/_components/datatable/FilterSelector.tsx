@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 
-interface SelectProps {
+interface FilterSelectorProps {
   id: string;
   label: string;
   value: any;
@@ -8,7 +8,7 @@ interface SelectProps {
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Select: React.FC<SelectProps> = ({
+const FilterSelector: React.FC<FilterSelectorProps> = ({
   id,
   label,
   value,
@@ -34,4 +34,4 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default FilterSelector;

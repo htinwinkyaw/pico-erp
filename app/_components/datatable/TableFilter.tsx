@@ -5,9 +5,9 @@ import {
 import React, { ChangeEvent, useState } from "react";
 
 import Button from "../ui/Button";
+import Card from "../ui/Card";
+import FilterSelector from "./FilterSelector";
 import Heading from "../ui/Heading";
-import HorizontalLine from "../ui/HorizontalLine";
-import Select from "../inputs/Select";
 
 interface TableFilterProps {
   columns: DataTableColumnType[];
@@ -73,7 +73,10 @@ const TableFilter: React.FC<TableFilterProps> = ({
   };
 
   // button click (CANCEL)
-  const closeFilter = () => setOpenFilter(false);
+  const closeFilter = () => {
+    setOpenFilter(false);
+    handleReset();
+  };
 
   // button click (RESET)
   const handleReset = () => {
@@ -82,12 +85,12 @@ const TableFilter: React.FC<TableFilterProps> = ({
   };
 
   return (
-    <div className="mb-5 p-4 rounded-lg bg-slate-200">
+    <Card>
       <Heading title="Filter" />
-      <HorizontalLine />
+
       <div className="grid grid-cols-4 gap-3">
         {selectInputs.map((select, index) => (
-          <Select
+          <FilterSelector
             key={index}
             id={select.id}
             label={select.label}
@@ -104,7 +107,7 @@ const TableFilter: React.FC<TableFilterProps> = ({
         <Button label="Reset" onClick={handleReset} outline />
         <Button label="Process" onClick={handleFilter} />
       </div>
-    </div>
+    </Card>
   );
 };
 

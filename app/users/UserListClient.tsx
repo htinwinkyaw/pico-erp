@@ -17,7 +17,6 @@ import { users } from "../_constants/users";
 
 const UserListClient = () => {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  console.log(activeDropdown);
 
   const toggleDropdown = (id: number) => {
     if (activeDropdown) {

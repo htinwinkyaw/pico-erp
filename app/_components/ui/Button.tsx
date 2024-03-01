@@ -9,6 +9,7 @@ interface ButtonProps {
   leftIcon?: IconType;
   rightIcon?: IconType;
   iconSize?: number;
+  type?: "button" | "submit" | "reset" | undefined;
   onClick: () => void;
   className?: string;
   outline?: boolean;
@@ -21,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   rightIcon: RightIcon,
   iconSize: size,
   onClick,
+  type,
   className,
   outline,
   disabled,
@@ -31,6 +33,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
+      type={type ? type : "button"}
       className={`
         flex flex-row items-end gap-2
         px-5 py-2 rounded-lg text-md font-base outline outline-1 outline-blue-500

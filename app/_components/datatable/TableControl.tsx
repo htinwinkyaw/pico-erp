@@ -9,7 +9,7 @@ import { HiFilter, HiPlus } from "react-icons/hi";
 import React, { ChangeEvent } from "react";
 
 import Button from "../ui/Button";
-import Input from "../inputs/Input";
+import SearchBox from "./SearchBox";
 import { TiExport } from "react-icons/ti";
 import { useRouter } from "next/navigation";
 
@@ -30,6 +30,7 @@ const TableControl: React.FC<TableControlProps> = ({
 }) => {
   const router = useRouter();
   const filterableColumns = columns.filter((column) => column.filterable);
+
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value.toLowerCase();
     const filteredRows = rows.filter((row) => {
@@ -39,11 +40,13 @@ const TableControl: React.FC<TableControlProps> = ({
     });
     setSearchedRows(filteredRows);
   };
+
   const toggleFilter = () => {
     setOpenFilter((prev) => {
       return !prev;
     });
   };
+
   const handleCreateRoute = () => {
     router.push(table.linkForAddAction);
   };
@@ -51,7 +54,7 @@ const TableControl: React.FC<TableControlProps> = ({
   return (
     <div className="flex flex-row items-center justify-between mx-3 mt-5 mb-10">
       <div>
-        <Input
+        <SearchBox
           id="search"
           placeholder={`Search ${table.name}`}
           onChange={handleSearchChange}

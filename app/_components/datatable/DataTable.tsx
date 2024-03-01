@@ -7,6 +7,7 @@ import {
 } from "@/app/_types/datatable.type";
 import React, { useState } from "react";
 
+import Card from "../ui/Card";
 import TableBody from "./TableBody";
 import TableControl from "./TableControl";
 import TableFilter from "./TableFilter";
@@ -32,7 +33,7 @@ const DataTable: React.FC<DataTableProps> = ({ table, rows, columns }) => {
           setOpenFilter={setOpenFilter}
         />
       )}
-      <div className="p-5 bg-slate-200 rounded-lg">
+      <Card>
         <TableControl
           columns={columns}
           rows={rows}
@@ -49,7 +50,7 @@ const DataTable: React.FC<DataTableProps> = ({ table, rows, columns }) => {
             No Data Found
           </div>
         )}
-      </div>
+      </Card>
     </>
   );
 };

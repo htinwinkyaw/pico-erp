@@ -1,38 +1,59 @@
-import React, { ChangeEvent } from "react";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
-import { IconType } from "react-icons";
-import { toPascalCase } from "@/app/_utils/toPascalCase";
+import React from "react";
 
 interface InputProps {
   id: string;
   type?: string;
-  label?: string;
-  icon?: IconType;
+  label: string;
   placeholder?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors<FieldValues>;
+  disabled?: boolean;
+  rules?: Partial<{
+    required: string | boolean;
+    minLength: { value: number; message: string };
+    maxLength: { value: number; message: string };
+    pattern: { value: RegExp; message: string };
+  }>;
 }
 
 const Input: React.FC<InputProps> = ({
   id,
   type,
   label,
-  icon: Icon,
   placeholder,
-  onChange,
+  register,
+  errors,
+  disabled,
+  rules,
 }) => {
-  const placeholderText = toPascalCase(placeholder ? placeholder : "");
-
+  console.log(errors[id]);
   return (
-    <div>
-      {label && <label>{label}</label>}
+    <div className="flex flex-col gap-2">
+      <label htmlFor={id} className={`${errors[id] && "text-rose-400"}`}>
+        {label}
+        {rules?.required && <span className="text-rose-500"> *</span>}
+      </label>
       <input
-        type={type ? type : "text"}
         id={id}
-        placeholder={placeholderText}
-        onChange={onChange}
+        type={type || ""}
+        {...register(id, rules)}
+        placeholder={placeholder}
         autoComplete="off"
-        className={`px-3 py-2 rounded-lg w-80`}
+        disabled={disabled}
+        className={`px-3 py-2 w-full border rounded-lg
+          placeholder:text-sm placeholder:opacity-70 focus:outline-slate-300
+          ${
+            errors[id]
+              ? "text-rose-400 border-rose-400 focus:outline-rose-400"
+              : "border-slate-200"
+          }
+        `}
       />
+      {errors[id] && errors[id]!.type === "required" && (
+        <span className="text-xs text-rose-500">field cannot be empty.</span>
+      )}
     </div>
   );
 };

@@ -1,7 +1,8 @@
+import NewUserClient from "./NewUserClient";
 import React from "react";
 
 const NewUserPage = () => {
-  return <div>NewUserPage</div>;
+  return <NewUserClient />;
 };
 
 export default NewUserPage;

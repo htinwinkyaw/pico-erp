@@ -10,6 +10,7 @@ interface InputProps {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors<FieldValues>;
   disabled?: boolean;
+  className?: string;
   rules?: Partial<{
     required: string | boolean;
     minLength: { value: number; message: string };
@@ -27,8 +28,8 @@ const Input: React.FC<InputProps> = ({
   errors,
   disabled,
   rules,
+  className,
 }) => {
-  console.log(errors[id]);
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className={`${errors[id] && "text-rose-400"}`}>

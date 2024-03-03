@@ -16,7 +16,11 @@ const NewUserClient = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FieldValues>();
+  } = useForm<FieldValues>({
+    defaultValues: {
+      role: "",
+    },
+  });
 
   const handleCancelButton = () => {
     router.push("/users");
@@ -24,7 +28,6 @@ const NewUserClient = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
-    console.log(errors);
   };
 
   return (

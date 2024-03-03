@@ -6,7 +6,7 @@ import Input from "@/app/_components/inputs/Input";
 
 interface UserInformationFormProps {
   register: UseFormRegister<FieldValues>;
-  errors: FieldErrors;
+  errors: FieldErrors<FieldValues>;
 }
 
 const UserInformationForm: React.FC<UserInformationFormProps> = ({
@@ -39,12 +39,7 @@ const UserInformationForm: React.FC<UserInformationFormProps> = ({
         errors={errors}
         placeholder="Enter Your Email"
       />
-      <Checkbox
-        id="isActive"
-        label="Is Active?"
-        register={register}
-        errors={errors}
-      />
+      <Checkbox id="isActive" label="Is Active?" register={register} />
     </div>
   );
 };

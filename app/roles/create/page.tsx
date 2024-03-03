@@ -1,7 +1,8 @@
+import NewRoleClient from "./NewRoleClient";
 import React from "react";
 
 const NewRolePage = () => {
-  return <div>NewRolePage</div>;
+  return <NewRoleClient />;
 };
 
 export default NewRolePage;

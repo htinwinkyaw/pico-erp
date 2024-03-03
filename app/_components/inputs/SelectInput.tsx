@@ -46,6 +46,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
           );
         })}
       </select>
+      {errors[id] && errors[id]!.type === "required" && (
+        <span className="text-xs text-rose-500">field cannot be empty.</span>
+      )}
     </div>
   );
 };

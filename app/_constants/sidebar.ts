@@ -1,6 +1,6 @@
 import { HiOutlineHome, HiOutlineUser } from "react-icons/hi";
 
-import { SidebarItemType } from "../_types/sidebar";
+import { SidebarItemType } from "../_types/sidebar.type";
 
 export const sidebar: SidebarItemType[] = [
   {

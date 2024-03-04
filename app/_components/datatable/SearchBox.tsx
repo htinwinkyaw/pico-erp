@@ -31,7 +31,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         placeholder={placeholderText}
         onChange={onChange}
         autoComplete="off"
-        className={`px-3 py-2 rounded-lg w-80 focus:outline-slate-300`}
+        className={`px-3 py-2 rounded-lg w-full md:w-80 focus:outline-slate-300`}
       />
     </div>
   );

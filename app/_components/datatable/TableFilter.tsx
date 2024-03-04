@@ -88,24 +88,26 @@ const TableFilter: React.FC<TableFilterProps> = ({
     <Card>
       <Heading title="Filter" />
 
-      <div className="grid grid-cols-4 gap-3">
-        {selectInputs.map((select, index) => (
-          <FilterSelector
-            key={index}
-            id={select.id}
-            label={select.label}
-            onChange={handleSelectChange}
-            value={
-              selectedValues.find((item) => item.field === select.id)?.value
-            }
-            options={select.values.map((value) => ({ value }))}
-          />
-        ))}
-      </div>
-      <div className="flex flex-row items-center justify-end gap-3">
-        <Button label="Cancel" onClick={closeFilter} outline />
-        <Button label="Reset" onClick={handleReset} outline />
-        <Button label="Process" onClick={handleFilter} />
+      <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+          {selectInputs.map((select, index) => (
+            <FilterSelector
+              key={index}
+              id={select.id}
+              label={select.label}
+              onChange={handleSelectChange}
+              value={
+                selectedValues.find((item) => item.field === select.id)?.value
+              }
+              options={select.values.map((value) => ({ value }))}
+            />
+          ))}
+        </div>
+        <div className="flex flex-row items-center justify-end gap-3">
+          <Button label="Cancel" onClick={closeFilter} outline />
+          <Button label="Reset" onClick={handleReset} outline />
+          <Button label="Process" onClick={handleFilter} />
+        </div>
       </div>
     </Card>
   );

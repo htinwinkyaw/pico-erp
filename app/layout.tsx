@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`max-w-screen ${inter.className}`}>
         <StoreProvider>
           <div className="flex flex-col min-h-screen">
             <NavBar />

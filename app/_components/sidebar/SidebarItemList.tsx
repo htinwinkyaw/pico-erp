@@ -28,7 +28,7 @@ const SidebarItemList = () => {
       {menus.map((menu, index) => {
         return (
           <div key={index}>
-            <SidebarItem menu={menu} onClick={handleFirstMenu} />
+            <SidebarItem menu={menu} layer={1} onClick={handleFirstMenu} />
 
             {/* SECOND MENU */}
             {activeMenu === menu.menuName &&
@@ -36,13 +36,19 @@ const SidebarItemList = () => {
               menu.childMenus!.map((menu, index) => {
                 return (
                   <div key={index}>
-                    <SidebarItem menu={menu} onClick={handleSecondMenu} />
+                    <SidebarItem
+                      menu={menu}
+                      layer={2}
+                      onClick={handleSecondMenu}
+                    />
 
                     {/* THIRD MENU */}
                     {secondActiveMenu === menu.menuName &&
                       expanded &&
                       menu.childMenus?.map((menu, index) => {
-                        return <SidebarItem key={index} menu={menu} />;
+                        return (
+                          <SidebarItem key={index} menu={menu} layer={3} />
+                        );
                       })}
                   </div>
                 );

@@ -20,10 +20,10 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`py-4${
+      className={`md:py-4 ${
         expanded
           ? "items-start w-80 bg-slate-500 text-white rounded-tr-lg pt-2 pr-2"
-          : "items-center w-16"
+          : "items-center hidden md:block md:w-16"
       }`}
       onMouseEnter={openMenu}
       onMouseLeave={closeMenu}

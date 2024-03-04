@@ -6,24 +6,28 @@ export const sidebar: SidebarItemType[] = [
   {
     menuName: "Home",
     menuIcon: HiOutlineHome,
-    childMenus: [{ menuName: "Dashboard", link: "/" }],
+    layer: 1,
+    childMenus: [{ menuName: "Dashboard", layer: 2, link: "/" }],
   },
   {
     menuName: "User Management",
     menuIcon: HiOutlineUser,
+    layer: 1,
     childMenus: [
       {
         menuName: "Users",
+        layer: 2,
         childMenus: [
-          { menuName: "User List", link: "/users" },
-          { menuName: "Add User", link: "/users/create" },
+          { menuName: "User List", layer: 3, link: "/users" },
+          { menuName: "Add User", layer: 3, link: "/users/create" },
         ],
       },
       {
         menuName: "Roles",
+        layer: 2,
         childMenus: [
-          { menuName: "Role List", link: "/roles" },
-          { menuName: "Add Role", link: "/roles/create" },
+          { menuName: "Role List", layer: 3, link: "/roles" },
+          { menuName: "Add Role", layer: 3, link: "/roles/create" },
         ],
       },
     ],

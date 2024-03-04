@@ -10,10 +10,11 @@ import { useRouter } from "next/navigation";
 
 interface SidebarItemProps {
   menu: SidebarItemType;
+  layer: number;
   onClick?: (menu: string) => void;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ menu, onClick }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ menu, layer, onClick }) => {
   const { menuName: name, menuIcon: Icon, link, childMenus } = menu;
   const router = useRouter();
 
@@ -33,9 +34,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ menu, onClick }) => {
 
   return (
     <li
-      className={`flex flex-row items-center justify-between px-4 py-2 cursor-pointer 
-      hover:bg-slate-300 hover:rounded-r-full
-        ${currentMenu === name && "font-bold bg-slate-200 rounded-r-full"}
+      className={`flex flex-row items-center justify-between 
+        ${layer === 1 ? "pl-4" : layer === 2 ? "pl-8" : "pl-12"}
+        pr-4 py-2 cursor-pointer 
+        hover:bg-slate-300 hover:rounded-r-full
+        ${currentMenu === name && "font-bold bg-slate-300 rounded-r-full"}
       `}
       onClick={
         link

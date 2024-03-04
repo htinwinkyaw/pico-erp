@@ -52,15 +52,15 @@ const TableControl: React.FC<TableControlProps> = ({
   };
 
   return (
-    <div className="flex flex-row items-center justify-between mx-3 mt-5 mb-10">
-      <div>
+    <div className="flex flex-col md:flex-row justify-between gap-3 mx-2 md:mx-3 mt-5 mb-10">
+      <div className="w-full md:w-fit">
         <SearchBox
           id="search"
           placeholder={`Search ${table.name}`}
           onChange={handleSearchChange}
         />
       </div>
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center justify-end gap-3">
         {filterableColumns.length > 0 && (
           <Button
             label="Filter"
@@ -78,7 +78,7 @@ const TableControl: React.FC<TableControlProps> = ({
           disabled
         />
         <Button
-          label={`Create ${table.name}`}
+          label={`Create`}
           leftIcon={HiPlus}
           onClick={handleCreateRoute}
         />

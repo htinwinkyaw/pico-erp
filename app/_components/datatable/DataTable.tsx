@@ -41,10 +41,14 @@ const DataTable: React.FC<DataTableProps> = ({ table, rows, columns }) => {
           setSearchedRows={setFilteredRows}
           setOpenFilter={setOpenFilter}
         />
-        <table className="table w-full">
-          <TableHead columns={columns} />
-          <TableBody columns={columns} rows={filteredRows} />
-        </table>
+        {/* MAIN TABLE START */}
+        <div className="overflow-x-auto">
+          <table className="table min-w-full">
+            <TableHead columns={columns} />
+            <TableBody columns={columns} rows={filteredRows} />
+          </table>
+        </div>
+        {/* MAIN TABLE END */}
         {filteredRows.length === 0 && (
           <div className="text-2xl font-semibold py-10 text-center text-slate-400">
             No Data Found
